@@ -8,7 +8,9 @@
                         <h1 class="card-title">{{ task.summary }}</h1><br>
                         <h4 class="card-title">{{ task.description }}</h4><br>
                         <h4 class="card-title">Статус - {{ task.status }}</h4><br>
-                        <h4 class="card-title">Тип - {{ task.type }}</h4><br>
+                        {% for task in task.type.all %}
+                        <h4 class="card-title">Тип - {{ task.name }}</h4><br>
+                        {% endfor%}
                         <h4 class="card-title">Создание - {{ task.created }}</h4><br>
                         <h4 class="card-title">Редактирование - {{ task.updated }}</h4>
                     </div>
