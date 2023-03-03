@@ -16,11 +16,12 @@ class Tasks(models.Model):
     )
     status = models.ForeignKey(
         to='webapp.Status',
+        related_name='status',
         on_delete=models.PROTECT
     )
-    type = models.ForeignKey(
-        to='webapp.Type',
-        on_delete=models.PROTECT
+    type = models.ManyToManyField(
+        'webapp.Type',
+        related_name='type',
     )
     created = models.DateTimeField(
         auto_now_add=True,
